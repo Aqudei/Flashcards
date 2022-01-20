@@ -16,16 +16,16 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Margin="2">
             <Label Width="150">Source:</Label>
-            <TextBox Width="400"/>
+            <TextBox Width="400" Text="{Binding Source, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Content="Browse" Width="100" Command="{Binding BrowseSourceCommand}"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="2">
-            <Label Width="150">Min Seconds:</Label>
-            <TextBox Width="500"/>
+            <Label Width="150">Min Timeout Minutes:</Label>
+            <TextBox Width="500" Text="{Binding MinFlashTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="2">
-            <Label Width="150">Max Seconds:</Label>
-            <TextBox Width="500"/>
+            <Label Width="150">Max Timeout Minutes:</Label>
+            <TextBox Width="500" Text="{Binding MaxFlashTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="2">
             <Button Command="{Binding ApplyCommand}" Margin="2">Apply</Button>
