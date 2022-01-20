@@ -20,11 +20,11 @@
             <Button Content="Browse" Width="100" Command="{Binding BrowseSourceCommand}"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="2">
-            <Label Width="150">Min Timeout Minutes:</Label>
+            <Label Width="150">Min Timeout Seconds:</Label>
             <TextBox Width="500" Text="{Binding MinFlashTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="2">
-            <Label Width="150">Max Timeout Minutes:</Label>
+            <Label Width="150">Max Timeout Seconds:</Label>
             <TextBox Width="500" Text="{Binding MaxFlashTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="2">

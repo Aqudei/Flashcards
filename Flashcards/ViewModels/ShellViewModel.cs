@@ -54,7 +54,7 @@ namespace Flashcards.ViewModels
             _source = source;
             Debug.WriteLine(source.GetWord());
             _timer.Tick += _timer_Tick;
-            _timer.Interval = TimeSpan.FromMinutes(randomSeconds);
+            _timer.Interval = TimeSpan.FromSeconds(randomSeconds);
             _timer.Start();
         }
 
@@ -66,7 +66,7 @@ namespace Flashcards.ViewModels
             {
                 var randomSeconds = _random.Next(Properties.Settings.Default.MiniFlashTimeout,
                     Properties.Settings.Default.MaxFlashTimeout + 1);
-                _timer.Interval = TimeSpan.FromMinutes(randomSeconds);
+                _timer.Interval = TimeSpan.FromSeconds(randomSeconds);
                 _timer.Start();
             });
         }
