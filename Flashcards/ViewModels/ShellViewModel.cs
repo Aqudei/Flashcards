@@ -1,4 +1,5 @@
 ﻿using Flashcards.Interfaces;
+using Prism.Commands;
 using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Threading;
 
 namespace Flashcards.ViewModels
@@ -16,16 +18,43 @@ namespace Flashcards.ViewModels
         private readonly IDialogService _dialogService;
         private DispatcherTimer _timer = new DispatcherTimer();
         private Random _random = new Random();
-        const int FLASH_INTERVAL_SECONDS = 60;
+        private DelegateCommand _exitCommand;
+
+        public DelegateCommand ExitCommand => _exitCommand = _exitCommand ?? new DelegateCommand(DoExit);
+        private DelegateCommand _settingsCommand;
+        private DelegateCommand _restartAppCommand;
+
+        public DelegateCommand SettingsCommand
+        {
+            get { return _settingsCommand = _settingsCommand ?? new DelegateCommand(OpenSettings); }
+        }
+
+        public DelegateCommand RestartAppCommand => _restartAppCommand = _restartAppCommand ?? new DelegateCommand(DoRestartApp);
+
+        private void DoRestartApp()
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void OpenSettings()
+        {
+            _dialogService.Show("SettingsDialog");
+        }
+
+        private void DoExit()
+        {
+            Application.Current.Shutdown();
+        }
 
         public ShellViewModel(ISource source, IDialogService dialogService)
         {
-            var randomSeconds = _random.Next(FLASH_INTERVAL_SECONDS);
+            var randomSeconds = _random.Next(Properties.Settings.Default.MiniFlashTimeout,
+                Properties.Settings.Default.MaxFlashTimeout + 1);
             _dialogService = dialogService;
             _source = source;
             Debug.WriteLine(source.GetWord());
             _timer.Tick += _timer_Tick;
-            _timer.Interval = TimeSpan.FromSeconds(randomSeconds);
+            _timer.Interval = TimeSpan.FromMinutes(randomSeconds);
             _timer.Start();
         }
 
@@ -35,8 +64,9 @@ namespace Flashcards.ViewModels
 
             _dialogService.Show("FlashDialog", result =>
             {
-                var randomSeconds = _random.Next(FLASH_INTERVAL_SECONDS);
-                _timer.Interval = TimeSpan.FromSeconds(randomSeconds);
+                var randomSeconds = _random.Next(Properties.Settings.Default.MiniFlashTimeout,
+                    Properties.Settings.Default.MaxFlashTimeout + 1);
+                _timer.Interval = TimeSpan.FromMinutes(randomSeconds);
                 _timer.Start();
             });
         }

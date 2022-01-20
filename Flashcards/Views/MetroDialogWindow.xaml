@@ -7,10 +7,7 @@
         xmlns:local="clr-namespace:Flashcards.Views" 
                   xmlns:tb="http://www.hardcodet.net/taskbar"
                   mc:Ignorable="d"
-        Title="MetroDialogWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" IsCloseButtonEnabled="False" IsMaxRestoreButtonEnabled="False" IsMinButtonEnabled="False" ShowCloseButton="False" ShowMaxRestoreButton="False" ShowMinButton="False" ResizeMode="NoResize">
-
-
-
+        Title="" Height="450" Width="800" WindowStartupLocation="CenterScreen" IsCloseButtonEnabled="False" IsMaxRestoreButtonEnabled="False" IsMinButtonEnabled="False" ShowCloseButton="False" ShowMaxRestoreButton="False" ShowMinButton="False" SizeToContent="WidthAndHeight">
     <Grid>
         <tb:TaskbarIcon x:Name="myNotifyIcon"
                     Visibility="Visible"

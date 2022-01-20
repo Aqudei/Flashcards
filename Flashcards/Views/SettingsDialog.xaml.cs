@@ -1,5 +1,4 @@
-﻿using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,25 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Flashcards.Views
 {
     /// <summary>
-    /// Interaction logic for Shell.xaml
+    /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Shell : MetroWindow
+    public partial class SettingsDialog : UserControl
     {
-        public Shell()
+        public SettingsDialog()
         {
             InitializeComponent();
-
-            Loaded += Shell_Loaded;
-        }
-
-        private void Shell_Loaded(object sender, RoutedEventArgs e)
-        {
-            Visibility = Visibility.Collapsed;
         }
     }
 }

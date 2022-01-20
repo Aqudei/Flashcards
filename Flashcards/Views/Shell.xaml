@@ -12,6 +12,13 @@
     <Grid>
         <tb:TaskbarIcon
             IconSource="book.ico"
-            ToolTipText="Flashcards" />
+            ToolTipText="Flashcards" >
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Exit" Command="{Binding ExitCommand}"/>
+                    <MenuItem Header="Settings" Command="{Binding SettingsCommand}"/>
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
     </Grid>
 </mah:MetroWindow>

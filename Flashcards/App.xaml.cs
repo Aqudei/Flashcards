@@ -30,6 +30,7 @@ namespace Flashcards
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             containerRegistry.Register<ISource, ExcelSource>();
             containerRegistry.RegisterDialog<FlashDialog, FlashDialogViewModel>();
+            containerRegistry.RegisterDialog<SettingsDialog, SettingsViewModel>();
             containerRegistry.RegisterDialogWindow<MetroDialogWindow>();
         }
     }
