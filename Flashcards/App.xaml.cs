@@ -28,7 +28,14 @@ namespace Flashcards
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            containerRegistry.Register<ISource, ExcelSource>();
+            if (Flashcards.Properties.Settings.Default.UseGoogleSheet)
+            {
+                containerRegistry.Register<ISource, GSSource>();
+            }
+            else
+            {
+                containerRegistry.Register<ISource, ExcelSource>();
+            }
             containerRegistry.RegisterDialog<FlashDialog, FlashDialogViewModel>();
             containerRegistry.RegisterDialog<SettingsDialog, SettingsViewModel>();
             containerRegistry.RegisterDialogWindow<MetroDialogWindow>();

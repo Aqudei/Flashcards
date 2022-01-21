@@ -12,22 +12,29 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Margin="2">
-            <Label Width="150">Source:</Label>
+            <Label Width="150">Excel Source:</Label>
             <TextBox Width="400" Text="{Binding Source, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Content="Browse" Width="100" Command="{Binding BrowseSourceCommand}"/>
         </StackPanel>
+        
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="2">
+            <Label Width="150">Or Use Google Sheet:</Label>
+            <CheckBox Width="500" IsChecked="{Binding UseGoogleSheet, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="2">
             <Label Width="150">Min Timeout Seconds:</Label>
             <TextBox Width="500" Text="{Binding MinFlashTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="2">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="2">
             <Label Width="150">Max Timeout Seconds:</Label>
             <TextBox Width="500" Text="{Binding MaxFlashTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="2">
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="2">
             <Button Command="{Binding ApplyCommand}" Margin="2">Apply</Button>
             <Button Command="{Binding CloseCommand}" Margin="2">Close</Button>
         </StackPanel>

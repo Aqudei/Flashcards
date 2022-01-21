@@ -37,6 +37,7 @@ namespace Flashcards.ViewModels
             set { SetProperty(ref _maxFlashTimeout, value); }
         }
 
+        public bool UseGoogleSheet { get => useGoogleSheet; set => SetProperty(ref useGoogleSheet, value); }
 
         public event Action<IDialogResult> RequestClose;
 
@@ -68,6 +69,7 @@ namespace Flashcards.ViewModels
 
 
         private DelegateCommand _applyCommand;
+        private bool useGoogleSheet;
 
         public DelegateCommand ApplyCommand
         {
@@ -79,6 +81,7 @@ namespace Flashcards.ViewModels
             Properties.Settings.Default.Source = Source;
             Properties.Settings.Default.MiniFlashTimeout = MinFlashTimeout;
             Properties.Settings.Default.MaxFlashTimeout = MaxFlashTimeout;
+            Properties.Settings.Default.UseGoogleSheet = UseGoogleSheet;
             Properties.Settings.Default.Save();
         }
 
@@ -101,6 +104,7 @@ namespace Flashcards.ViewModels
             Source = Properties.Settings.Default.Source;
             MinFlashTimeout = Properties.Settings.Default.MiniFlashTimeout;
             MaxFlashTimeout = Properties.Settings.Default.MaxFlashTimeout;
+            UseGoogleSheet = Properties.Settings.Default.UseGoogleSheet;
         }
     }
 }
