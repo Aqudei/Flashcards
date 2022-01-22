@@ -16,6 +16,7 @@ namespace Flashcards.Interfaces
         {
 
         }
+
         public FlashItem GetWord()
         {
             var rand = new Random();
@@ -47,6 +48,11 @@ namespace Flashcards.Interfaces
                     SheetName = ep.Workbook.Worksheets[randSheet].Name
                 };
             }
+        }
+
+        public Task<FlashItem> GetWordAsync()
+        {
+            return Task.Run(GetWord);
         }
     }
 }

@@ -44,13 +44,13 @@ namespace Flashcards.ViewModels
             ShowMeaning = true;
         }
 
-        private void DoSkip()
+        private async void DoSkip()
         {
             ShowMeaning = false;
-            var flashItem = _wordSource.GetWord();
-            Word = flashItem.Word;
-            Meaning = flashItem.Meaning;
-            SheetName = flashItem.SheetName;
+            var flashItem = await _wordSource.GetWordAsync();
+            Word = flashItem?.Word ?? "NO WORD AVAILABLE";
+            Meaning = flashItem?.Meaning ?? "NO WORD AVAILABLE"; ;
+            SheetName = flashItem?.SheetName ?? "NO WORD AVAILABLE"; ;
         }
 
         public event Action<IDialogResult> RequestClose;
@@ -74,9 +74,11 @@ namespace Flashcards.ViewModels
         {
             ShowMeaning = false;
             var flashItem = _wordSource.GetWord();
-            Word = flashItem.Word;
-            Meaning = flashItem.Meaning;
-            SheetName = flashItem.SheetName;
+
+
+            Word = flashItem?.Word ?? "NO WORD AVAILABLE";
+            Meaning = flashItem?.Meaning ?? "NO WORD AVAILABLE"; ;
+            SheetName = flashItem?.SheetName ?? "NO WORD AVAILABLE"; ;
         }
     }
 }

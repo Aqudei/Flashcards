@@ -10,5 +10,6 @@ namespace Flashcards.Interfaces
     interface ISource
     {
         FlashItem GetWord();
+        Task<FlashItem> GetWordAsync();
     }
 }

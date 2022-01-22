@@ -9,11 +9,10 @@
                   mc:Ignorable="d"
         Title="" Height="450" Width="800" WindowStartupLocation="CenterScreen" IsCloseButtonEnabled="False" IsMaxRestoreButtonEnabled="False" IsMinButtonEnabled="False" ShowCloseButton="False" ShowMaxRestoreButton="False" ShowMinButton="False" SizeToContent="WidthAndHeight">
     <Grid>
-        <tb:TaskbarIcon x:Name="myNotifyIcon"
+        <!--<tb:TaskbarIcon x:Name="myNotifyIcon"
                     Visibility="Visible"
                     ToolTipText="Fallback ToolTip for Windows xp"
-                    MenuActivation="LeftOrRightClick"
-                    
-            />
+                    MenuActivation="RightClick"
+            />-->
     </Grid>
 </mah:MetroWindow>

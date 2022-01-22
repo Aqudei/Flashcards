@@ -83,5 +83,10 @@ namespace Flashcards.Interfaces
 
             return null;
         }
+
+        public Task<FlashItem> GetWordAsync()
+        {
+            return Task.Run(GetWord);
+        }
     }
 }

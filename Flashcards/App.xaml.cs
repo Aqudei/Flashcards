@@ -1,6 +1,7 @@
 ﻿using Flashcards.Interfaces;
 using Flashcards.ViewModels;
 using Flashcards.Views;
+using Hardcodet.Wpf.TaskbarNotification;
 using OfficeOpenXml;
 using Prism.Ioc;
 using Prism.Unity;
@@ -39,6 +40,14 @@ namespace Flashcards
             containerRegistry.RegisterDialog<FlashDialog, FlashDialogViewModel>();
             containerRegistry.RegisterDialog<SettingsDialog, SettingsViewModel>();
             containerRegistry.RegisterDialogWindow<MetroDialogWindow>();
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            var tray = Container.Resolve<Shell>().FindName("MyTray") as TaskbarIcon;
+            tray.Visibility = Visibility.Collapsed;
+            tray.Dispose();
+            base.OnExit(e);
         }
     }
 }

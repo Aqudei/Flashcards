@@ -10,9 +10,11 @@
                   mc:Ignorable="d"
         Title="Shell" Height="450" Width="800">
     <Grid>
-        <tb:TaskbarIcon
+        <tb:TaskbarIcon 
+            x:Name="MyTray"
             IconSource="book.ico"
-            ToolTipText="Flashcards" >
+            ToolTipText="Flashcards" 
+            MenuActivation="RightClick">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Exit" Command="{Binding ExitCommand}"/>
